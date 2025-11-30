@@ -1,112 +1,113 @@
-🌟 Customer Churn Prediction – Streamlit Web App
+# 🌟 Customer Churn Prediction – Streamlit Web App
 
-This project is a Customer Churn Prediction Web Application built using Machine Learning, TensorFlow, and Streamlit.
-The app predicts whether a bank customer is likely to churn based on demographic, financial, and account-related inputs.
+This project is a **Customer Churn Prediction Web Application** built using **Machine Learning, TensorFlow, and Streamlit**.  
+The app predicts whether a bank customer is likely to churn based on demographic, financial, and account-related features.
 
-You can try the deployed demo here:
+---
 
 ## 🚀 Live Demo
-Try the deployed web app here:
 
 👉 **https://a2x3qbasvenznwrm4go6fk.streamlit.app/**
 
+Try the deployed web app and explore real-time churn predictions!
 
-🚀 Features
+---
 
-Interactive Streamlit UI
+## 🚀 Features
 
-Predicts Customer Churn Probability
+### 🎨 Interactive Streamlit UI  
+A clean and responsive interface to collect customer details.
 
-Uses a trained Keras .h5 model`
+### 🔮 Real-time Churn Prediction  
+Displays both:  
+- **Churn / Not Churn** classification  
+- **Prediction probability**
 
-Handles:
+### 🧠 Trained Deep Learning Model  
+Uses a saved **Keras `.h5` model** for inference.
 
-One-Hot Encoding (Geography)
+### 🔧 Handles All Preprocessing Automatically  
+- **One-Hot Encoding** for *Geography*  
+- **Label Encoding** for *Gender*  
+- **Standard Scaling** for numerical features  
 
-Label Encoding (Gender)
+Encoders and scaler are loaded from pre-saved `.pkl` files.
 
-Feature Scaling
+### ⚡ Instant Results  
+Once the user enters values → Streamlit processes → Model predicts immediately.
 
-Real-time probability calculation
+---
 
-Clear interpretation (Churn / Not Churn)
+## 🧠 Machine Learning Model
 
-📂 Project Structure
-📦 Customer-Churn-Prediction
-│
-├── model.h5                  # Trained Keras model
-├── onehot_geo.pkl            # OneHotEncoder for Geography
-├── label_encoder_gender.pkl  # LabelEncoder for Gender
-├── scaler.pkl                # StandardScaler for numerical features
-├── app.py                    # Streamlit application code
-├── requirements.txt          # Required dependencies
-└── README.md                 # Project documentation
+- **Framework:** TensorFlow / Keras  
+- **Type:** Binary Classification  
+- **Target:** Predict if a customer will churn  
+- **Output:** Probability (between 0 and 1)
 
-🧠 Machine Learning Model
+### 🔍 Preprocessing Steps Used During Training
 
-Framework: TensorFlow / Keras
+#### 📌 Categorical Features  
+- **Geography → OneHotEncoder**  
+  (France, Germany, Spain converted to binary vectors)  
+- **Gender → LabelEncoder**  
+  (Male = 1, Female = 0)
 
-Type: Binary Classification
+#### 📌 Numerical Features  
+Scaled using **StandardScaler** to normalize ranges.
 
-Output: Probability of churn (0 → No churn, 1 → Churn)
+All preprocessing objects were saved using **joblib** as:
+- `onehot_geo.pkl`
+- `label_encoder_gender.pkl`
+- `scaler.pkl`
 
-Preprocessing:
+These are loaded inside the Streamlit app during prediction.
 
-Categorical features:
+---
 
-Geography → OneHotEncoder
+## 🎛️ Streamlit Application Workflow
 
-Gender → LabelEncoder
+The UI collects user inputs for:
 
-Numerical features:
+- Geography  
+- Gender  
+- Age  
+- Balance  
+- Credit Score  
+- Tenure  
+- Number of Products  
+- Has Credit Card  
+- Is Active Member  
+- Estimated Salary  
 
-Scaled using StandardScaler
+### 🔁 Prediction Flow
 
-The preprocessing objects are saved as .pkl using joblib and loaded during prediction.
+1. User enters information  
+2. Input is passed to preprocessing pipeline  
+3. Features transformed:  
+   - Geography → one-hot encoded  
+   - Gender → label encoded  
+   - Numerical features → scaled  
+4. All features combined into a single row  
+5. Model predicts probability of churn  
+6. Streamlit displays:  
+   - ✔ **Churn / Not Churn** decision  
+   - ✔ **Probability score**
 
-🎛️ Streamlit Application
+---
 
-The UI collects user inputs:
+## 🏁 Summary
 
-Geography
+This project demonstrates a complete end-to-end **Machine Learning deployment pipeline** using:
 
-Gender
+- TensorFlow  
+- Encoders + Scalers  
+- Streamlit UI  
+- Real-time predictions  
 
-Age
+Perfect for showcasing ML deployment skills!
 
-Balance
+---
 
-Credit Score
-
-Tenure
-
-Number of Products
-
-Has Credit Card
-
-Is Active Member
-
-Estimated Salary
-
-These inputs are transformed using saved encoders + scaler.
-The final processed array is passed to the trained model.
-
-🧾 How It Works (Prediction Flow)
-
-User enters details in Streamlit UI
-
-Geography → OneHotEncoded
-
-Gender → LabelEncoded
-
-Numerical features → Scaled
-
-Features combined into a single row
-
-Model predicts churn probability
-
-UI displays:
-
-Probability
-
-Prediction (Churn / Not Churn)
+## 📄 License  
+MIT License © 2025
